@@ -4,6 +4,7 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import './App.css';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import NavBar from '../../components/NavBar/NavBar';
 
 function App() {
 
@@ -12,10 +13,13 @@ function App() {
   return (
     <main className="App">
       { user ?
+      <>
+       <NavBar/>
         <Routes>
           <Route path='/orders/new' element={<NewOrderPage />} />
           <Route path='/orders' element={<OrderHistoryPage />} />
         </Routes>
+      </>
         :
         <AuthPage />
       }
