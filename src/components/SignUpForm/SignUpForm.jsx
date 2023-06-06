@@ -17,6 +17,22 @@ export default class SignUpForm extends Component {
         });
     };
 
+    handleSubmit = async (evt) => {
+        evt.preventDefault();
+        try {
+            alert(JSON.stringify(this.state));
+            const formData = {...this.state};
+            delete formData.error;
+            delete formData.confirm;
+            //const user = await signUp(formData);
+            //this.props.setUser(user);
+        } catch {
+            this.setState({
+                error: 'Sign Up Failed - Try Again'
+            });
+        }
+    }
+
     render() {
         const disable = this.state.password !== this.state.confirm;
         return (
